@@ -1,0 +1,14 @@
+{
+  "name": "ecudevs-snippets-ioms",
+  "version": "1.0.0",
+  "description": "Snippets para mi cursito",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecudevs"
+  ],
+  "author": "Thianlopezz",
+  "license": "ISC"
+}

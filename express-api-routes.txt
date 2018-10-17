@@ -1,0 +1,25 @@
+const express = require('express');
+const router = express.Router();
+
+router.get('/', (req, res) => {
+    res.send('Hola mundo');
+});
+
+router.get('/saludar/', (req, res) => {
+    res.send({ mensaje: 'hola!' });
+});
+
+router.get('/saludar/:nombre', (req, res) => {
+    res.send({ mensaje: 'Hola ' + req.params.nombre + ' por get param.' });
+});
+
+router.post('/saludar', (req, res) => {
+    res.send({ mensaje: 'Hola ' + req.body.nombre + ' por post.' });
+});
+
+router.put('/saludar', (req, res) => {
+    res.send({ mensaje: 'Hola ' + req.body.nombre + ' por put.' });
+});
+
+
+module.exports = router;

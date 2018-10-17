@@ -1,0 +1,29 @@
+// CARPETA API
+// SERVER.JS
+
+// RUTAS
+app.use('/api', api);
+
+// NPM SCRIPTS
+"start:dev": "npm-run-all --parallel build:watch start:nodemon",
+"start:nodemon": "nodemon API/server.js",
+"build:watch": "ng build --output-path dist/to-do-app --watch"
+
+// MONGO
+
+// Configuramos nuestra coneccion a nuestra base de datos MongoDB
+// process.env define que vamos a obtener el valor de nuestra variable de entorno MONGODB_URI
+const conn_str = process.env.MONGODB_URI || 'mongodb://localhost:27017/ecudevs2';
+mongoose.connect(conn_str, { useNewUrlParser: true });
+
+const ObjectId = require('mongoose').Types.ObjectId;
+
+// OBJETO NODEJS
+function ToDoDAO () {
+
+    this.get = function () {
+			//promise
+    }
+}
+
+module.exports = new ToDoDAO;

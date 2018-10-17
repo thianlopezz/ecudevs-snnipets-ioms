@@ -1,0 +1,92 @@
+//BOOTSTRAP
+
+// STYLE SCSS 
+"src/styles.scss"
+
+$theme-colors: (
+  "primary": #377a87,
+  "secondary": #fc5d64
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// JS
+"node_modules/bootstrap/dist/js/bootstrap.min.js"
+
+// FA
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+
+// CARPETA PRODUCTO
+// ng generate component producto-page
+ng g class producto
+
+// CARTAS
+<div class="card">
+  <!-- <img class="card-img-top" src="https://picsum.photos/286/180" alt="Card image cap"> -->
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+// FA PLUS
+<i class="fas fa-plus-circle fa-7x"></i>
+
+// FORM
+#f="ngForm" name="formProducto" (ngSubmit)="f.form.valid && guardar(f)" 
+<form>
+	<div class="form-group">
+	  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+	</div>
+	<div class="form-group">
+	  <input type="text" class="form-control" id="imagenUrl" name="imagenUrl" placeholder="Url de la imagen" required>
+	</div>
+	<div class="form-group">
+	  <input type="text" class="form-control" id="precio" name="precio" placeholder="Precio" required>
+	</div>
+	<div class="form-group">
+	  <input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="cantidad" required>
+	</div>	
+	<div>
+	  <button type="submit" class="btn btn-primary mx-2">
+		Guardar
+	  </button>
+	  <button type="button" class="btn btn-light">
+		Cancelar
+	  </button>
+	</div>
+</form>
+
+// FORMS MODULE
+import { FormsModule } from '@angular/forms';
+
+<p *ngIf="f.submitted && !nombre.valid" class="text-danger">El nombre es requerido</p>
+
+// ROUTING app.routes.ts
+<router-outlet></router-outlet>
+
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes: Routes = [
+    { path: '', component: componente },
+    { path: '**', redirectTo: '' }
+];
+
+export const routing = RouterModule.forRoot(appRoutes);
+
+import { routing } from './routes/app.routes';//modulo
+
+// GET PARAMETROS
+private route: ActivatedRoute
+
+this.route.snapshot.params.idProducto;
+
+this.route.paramMap.subscribe(params => {
+      this.idProducto = params.get('idProducto');
+      // funcion para filtrar
+    });
+
+// GUARD
+canActivate: [RouteActivatorService]
